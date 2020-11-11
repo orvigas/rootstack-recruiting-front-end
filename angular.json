@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "rootstack-recruiting-front-end"
+    }
+  },
+  "defaultProject": "rootstack-recruiting-front-end",
+  "cli": {
+    "analytics": false
+  }
 }

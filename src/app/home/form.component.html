@@ -1,0 +1,56 @@
+<div class="card bg-dark text-white">
+  <div class="card-header">{{ titulo }}</div>
+  <div class="card-body">
+    <form>
+      <div class="form-group row">
+        <label for="nombre" class="col-form-label col-sm-2">Nombre</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="job.task_name" name="task_name" #task_name="ngModel" required minlength="4">
+          <div class="alert alert-danger" *ngIf="task_name.invalid && (task_name.dirty || task_name.touched)">
+            <div *ngIf="task_name.errors.required">
+              TAskName requerido
+            </div>
+            <div *ngIf="task_name.errors.minlength">
+              TaskName debe tener al menos 4 letras
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="long" class="col-form-label col-sm-2">long</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="job.long" name="long" #long="ngModel" required minlength="4">
+
+          <div class="alert alert-danger" *ngIf="long.invalid && (long.dirty || long.touched)">
+            <div *ngIf="long.errors.required">
+              long requerido
+            </div>
+            <div *ngIf="long.errors.minlength">
+              long debe tener al menos 4 letras
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="lat" class="col-form-label col-sm-2">lat</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="job.lat" name="lat" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="lat" class="col-form-label col-sm-2">lat</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="job.desc" name="desc">
+        </div>
+      </div>
+      <div class="form-group row">
+        <div>
+          <button type="submit" role="button" name="button" class="btn btn-primary" (click)="create()" *ngIf="!job.id else elseBlock">Crear</button>
+          <ng-template #elseBlock>
+            <button type="submit" role="button" name="button" class="btn btn-primary" (click)="update()">Actualizar</button>
+          </ng-template>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
